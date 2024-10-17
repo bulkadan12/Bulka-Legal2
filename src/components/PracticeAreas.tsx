@@ -5,50 +5,50 @@ const practiceAreas = [
   { 
     name: 'Securities Law', 
     icon: Briefcase, 
-    description: 'Private companies, capital raising, funds',
-    details: 'Our Securities Law practice provides comprehensive legal services for private companies, capital raising initiatives, and fund formation & management. We guide clients through complex regulatory landscapes, ensuring compliance with SEC regulations and facilitating smooth transactions.'
+    description: 'Expert guidance for private companies in capital raising and fund formation.',
+    details: 'We provide comprehensive legal services that simplify the complexities of securities regulations. Our team ensures your capital-raising efforts and fund formations are compliant and efficient, allowing you to focus on growth. **Contact us to learn more.**'
   },
   { 
     name: 'Business & Corporate Law', 
     icon: Building, 
-    description: 'Comprehensive legal solutions for businesses',
-    details: 'From startups to established corporations, our Business & Corporate Law practice offers tailored legal strategies. We handle entity formation, mergers and acquisitions, corporate governance, and regulatory compliance to support your business growth and success.'
+    description: 'Tailored legal strategies for your business success.',
+    details: 'From startup to expansion, we offer customized legal solutions for entity formation, mergers and acquisitions, and corporate governance. Let us be your partner in navigating the legal landscape to drive your business forward. **Schedule a consultation today.**'
   },
   { 
     name: 'Mergers & Acquisitions', 
     icon: GitMerge, 
-    description: 'Strategic guidance for M&A transactions',
-    details: 'Our M&A practice provides expert guidance through all stages of mergers, acquisitions, and divestitures. We offer strategic advice on deal structuring, due diligence, negotiation, and post-merger integration, ensuring smooth transactions that maximize value for our clients.'
+    description: 'Strategic support for seamless M&A transactions.',
+    details: 'Our experts guide you through every stage of mergers and acquisitions, from due diligence to post-merger integration. We focus on maximizing value and ensuring a smooth transition. **Reach out to our M&A team.**'
   },
   { 
     name: 'Contract Drafting', 
     icon: FileText, 
-    description: 'Expert contract creation and review',
-    details: 'Our Contract Drafting services ensure that your agreements are clear, enforceable, and protect your interests. We specialize in crafting and reviewing a wide range of contracts, from simple agreements to complex multi-party deals.'
+    description: 'Precise contracts that protect your interests.',
+    details: 'We specialize in drafting and reviewing contracts that are clear and enforceable. Our attention to detail minimizes risks and safeguards your business relationships. **Get started with us today.**'
   },
   { 
     name: 'Small Business Law', 
     icon: Store, 
-    description: 'Legal support tailored for small businesses',
-    details: 'We understand the unique challenges faced by small businesses. Our Small Business Law practice offers affordable, practical legal solutions covering areas such as business formation, employment law, intellectual property protection, and day-to-day operational issues.'
+    description: 'Affordable legal solutions for small businesses.',
+    details: 'Understanding the unique challenges you face, we offer practical legal advice on formation, compliance, and daily operations, helping your small business thrive without the hefty price tag. **Contact us for a free consultation.**'
   },
   { 
     name: 'Tech & Startup Law', 
     icon: Cpu, 
-    description: 'Navigating legal challenges in the tech industry',
-    details: 'Our Tech & Startup Law practice is at the forefront of legal innovation. We assist technology companies and startups with IP protection, licensing agreements, privacy laws, funding rounds, and navigating the unique regulatory challenges in the tech sector.'
+    description: 'Legal expertise for tech innovators and startups.',
+    details: 'Stay ahead in the fast-paced tech industry with our specialized understanding of bleeding-edge fields. We help you navigate regulations so you can innovate freely. **Learn more about our tech law services.**'
   },
   { 
     name: 'Fractional Counsel Services', 
     icon: Users, 
-    description: 'Flexible legal counsel for your needs',
-    details: 'Our Fractional Counsel Services provide on-demand legal expertise without the overhead of a full-time in-house counsel. We offer flexible, scalable legal support tailored to your business needs and budget.'
+    description: 'On-demand legal counsel tailored to your needs.',
+    details: 'Access top-tier legal expertise without the full-time commitment. Our flexible services scale with your business, providing support exactly when you need it. **Find out how we can assist you.**'
   },
   { 
     name: 'Real Estate Law', 
     icon: Home, 
-    description: 'Comprehensive real estate legal services',
-    details: 'Our Real Estate Law practice covers all aspects of property transactions. From residential to complex commercial property deals and everything in between, we provide expert guidance to protect execute on your real estate strategy.'
+    description: 'Comprehensive services for all your real estate needs.',
+    details: 'From every day residential to complex commercial transactions, we ensure your deals are executed flawlessly, aligning with your strategic goals. **Leverage us today.**'
   },
 ];
 
@@ -63,17 +63,25 @@ const PracticeAreas = () => {
     <section id="practice-areas" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Our Practice Areas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {practiceAreas.map((area, index) => (
-            <div key={index} className="relative">
-              <div 
+            <div key={area.name} className="relative">
+              <div
                 className={`bg-white rounded-lg shadow-md transition-all duration-500 ease-in-out ${
                   expandedArea === index ? 'z-20' : 'z-10'
                 }`}
               >
-                <div 
+                <div
                   className="p-6 cursor-pointer"
                   onClick={() => toggleArea(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={expandedArea === index}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      toggleArea(index);
+                    }
+                  }}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
@@ -90,7 +98,7 @@ const PracticeAreas = () => {
                     )}
                   </div>
                 </div>
-                <div 
+                <div
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
                     expandedArea === index ? 'max-h-96' : 'max-h-0'
                   }`}
