@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,7 +44,7 @@ const Contact = () => {
             {isSubmitted ? (
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-2xl font-bold mb-4 text-green-600">Thank you for your message!</h3>
-                <p className="text-gray-600">We strive to return all message in less than 24 hours.</p>
+                <p className="text-gray-600">We'll get back to you as soon as possible.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
@@ -94,16 +94,12 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <div className="flex items-center mb-4">
-                <Mail className="h-6 w-6 text-blue-700 mr-4" />
-                <span></span>
-              </div>
-              <div className="flex items-center mb-4">
                 <Phone className="h-6 w-6 text-blue-700 mr-4" />
-                <span>(555) 123-4567</span>
+                <span>(801) 979-5548</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-6 w-6 text-blue-700 mr-4" />
-                <span>123 Legal Street, Suite 100<br />New York, NY 10001</span>
+                <span>St. Petersburg, FL</span>
               </div>
             </div>
           </div>

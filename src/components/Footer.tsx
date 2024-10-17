@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Scale } from 'lucide-react';
 
 const Footer = () => {
@@ -20,11 +21,16 @@ const Footer = () => {
         </div>
         <hr className="border-gray-700 my-8" />
         <div className="text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Bulka Law. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Bulka Law PLLC. All rights reserved.</p>
           <p className="mt-2">
-            <a href="#" className="hover:text-blue-400">Privacy Policy</a> | 
-            <a href="#" className="hover:text-blue-400 ml-2">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-blue-400">Privacy Policy</Link> | 
+            <Link to="/terms-of-service" className="hover:text-blue-400 ml-2">Terms of Service</Link>
           </p>
+        </div>
+        <div className="mt-8 text-xs text-gray-500 text-center">
+          <p>This website is operated by Bulka Law PLLC, licensed to practice law in the State of Florida.</p>
+          <p className="mt-2">The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation.</p>
+          <p className="mt-2">This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
         </div>
       </div>
     </footer>
